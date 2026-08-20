@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import health, info, applications
+from app.routers import health, info, applications, companies
 
 
 app = FastAPI(
@@ -11,6 +11,7 @@ app = FastAPI(
 app.include_router(health.router)
 app.include_router(info.router, prefix="/api/v1")
 app.include_router(applications.router, prefix="/api/v1")
+app.include_router(companies.router, prefix="/api/v1")
 
 @app.get("/")
 async def root():
